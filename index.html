@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+  <title>dream-26210-betan</title>
+  <style type="text/css" media="all">
+    * {
+      margin: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      padding: 0;
+    }
+    
+    body {
+      background-color: #000000;
+    }
+    
+    object {
+      width: 100vw;
+      height: 92vh;
+    }
+    
+    #dhl {
+      width: 100vw;
+      height: 8vh;
+      position: fixed;
+      bottom: 0;
+      background: #111214;
+      color: #eeeeee;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      font-weight: bold;
+    }
+    
+    #dhl div.active {
+      color: #00d4ff;
+    }
+    
+    #time {
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #tc {
+      width: 80vw;
+      height: 200px;
+      background: #1c1d1f;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    
+    #qubtn {
+      width: 60vw;
+      height: 32px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    
+    #qubtn button {
+      width: 20vw;
+      height: 32px;
+      background: #333333;
+      color: #eeeeee;
+      border: none;
+      border-radius: 10px;
+    }
+    
+    #new {
+      width: 100vw;
+      height: 100vh;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 11000;
+    }
+    
+    #tcnew {
+      width: 80vw;
+      height: 200px;
+      background: #1c1d1f;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    
+    #qubtnnew {
+      width: 60vw;
+      height: 32px;
+      margin: 20px auto;
+      display: flex;
+      justify-content: space-evenly;
+    }
+    
+    #qubtnnew button {
+      width: 20vw;
+      height: 32px;
+      background: #333333;
+      color: #eeeeee;
+      border: none;
+      border-radius: 10px;
+    }
+    
+    #xieyi {
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #xy {
+      width: 80vw;
+      height: 400px;
+      background: #1c1d1f;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    
+    #xybtn {
+      margin-top: 20px;
+      width: 40vw;
+      height: 32px;
+      background: #333333;
+      color: #eeeeee;
+      border: none;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="time">
+    <div id="tc">
+      <h3 style="text-align: center;color: #eeeeee;">版本太低了 <br>快去更新吧！</h3>
+      <div id="qubtn">
+        <button id="copy" type="submit">日志</button>
+        <button id="btn" type="submit">确定</button>
+      </div>
+    </div>
+  </div>
+  <div id="new">
+    <div id="tcnew">
+      <h3 style="text-align: center;color: #eeeeee;">🚨通知 <br /><br>新版本来啦！</h3>
+      <div id="qubtnnew">
+        <button id="btnnewgb" type="submit">关闭</button>
+        <button id="btnnew" type="submit">去更新</button>
+      </div>
+    </div>
+  </div>
+  <div id="xieyi">
+    <div id="xy">
+      <h4 style="text-align: center;color: #eeeeee;margin-left: 10px;margin-right: 0px;margin-top: 10px;margin-bottom: 10px;">欢迎使用追梦影视<br>请同意《用户使用协议》
+        <ul style="text-align: left;">
+          <li>仅供需要的人使用</li>
+          <li>禁止传播违法内容</li>
+          <li>可以反馈问题与建议</li>
+          <li>数据可能丢失，请妥善保存</li>
+          <li>遵守我国法律法规</li>
+          <li>最终解释权归追梦所有</li>
+        </ul> <br>点击确定进入软件
+      </h4>
+      <button id="xybtn" type="submit">确定</button>
+    </div>
+  </div>
+  
+  <object data="sy.html" type="" id="ifr">
+  
+  </object>
+  <div id="dhl">
+    <div class="dhls active" onclick="loadn('sy.html',this)">
+      首页
+    </div>
+    <div class="dhls" onclick="loadn('zmrz.html',this)">
+      日志
+    </div>
+    <div class="dhls" onclick="">
+      暂无
+    </div>
+    <div class="dhls" onclick="loadn('wd.html',this)">
+      我的
+    </div>
+  </div>
+  <script src="api.js" type="text/javascript" charset="utf-8"></script>
+  <script src="time.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    var ifr = document.getElementById('ifr')
+    
+    function loadn(src, element) {
+      ifr.data = src
+      
+      document.querySelector('.dhls.active')?.classList.remove('active')
+      
+      element.classList.add('active')
+    }
+    
+    /* var dhls = document.querySelectorAll('#dhl div')
+    for (var i = 0; i < dhls.length; i++) {
+      dhls[i].addEventListener('click', function() {
+        document.querySelector('.active').className = ''
+        this.className = 'active'
+      })
+    } */
+    
+    var xieyi = document.getElementById('xieyi')
+    var xybtn = document.getElementById('xybtn')
+    
+    if (!localStorage.getItem('xyload1')) {
+      xieyi.style.display = 'flex'
+    } else {
+      xieyi.style.display = 'none'
+    }
+    
+    xybtn.addEventListener('click', function() {
+      xieyi.style.display = 'none'
+      localStorage.setItem('xyload1', '1')
+    })
+  </script>
+</body>
+
+</html>
