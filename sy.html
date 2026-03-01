@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+  
+  <title></title>
+  <style type="text/css" media="all">
+    * {
+      margin: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      background-color: #000000;
+    }
+    
+    #top {
+      width: 100vw;
+      height: 70px;
+      background: #111214;
+      box-shadow: 0 0 10px snow;
+      display: flex;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    #toph2 {
+      color: #eeeeee;
+      margin-left: 20px;
+      font-size: 28px;
+    }
+    
+    #divbody {
+      width: 90vw;
+      height: auto;
+      background: #111214;
+      margin: 0 auto;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    
+    #divbody .divs {
+      background-color: #1c1d1f;
+      width: 32vw;
+      height: 180px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-bottom: 12px;
+      margin-top: 2vh;
+    }
+    
+    #divbody .divs:active {
+      background-color: #333333;
+    }
+    
+    #divbody .divs #img {
+      width: 28vw;
+      height: 140px;
+      border-radius: 10px;
+    }
+    
+    #divbody .divs #img img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+    
+    #divbody .divs p {
+      color: #eeeeee;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+    }
+    
+    #divbody .divs h5 {
+      color: #eeeeee;
+      font-size: 10px;
+      position: relative;
+      top: -20px;
+      left: -32px;
+    }
+    
+    #dhl {
+      width: 90vw;
+      height: 64px;
+      background: #111214;
+      color: snow;
+      margin: auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: row;
+      border-radius: 10px;
+    }
+    
+    #dhl div {
+      font-size: 16px;
+      font-weight: bold;
+      width: 45px;
+      height: 60px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #dhl div:active {
+      color: #00d4ff;
+      transform: scale(0.95);
+    }
+    
+    #box {
+      width: 90vw;
+      position: relative;
+      margin: auto;
+      margin-top: 90px;
+      margin-bottom: 32px;
+      border: 1px solid #111214;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    
+    #box button {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      border-radius: 50px;
+      border: none;
+      font-size: 14px;
+      font-weight: bold;
+      color: #eeeeee;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+    }
+    
+    #box #left {
+      top: 55px;
+    }
+    
+    #box #right {
+      top: 55px;
+      left: 76vw;
+    }
+    
+    #box #lun {
+      display: flex;
+      transition: all 0.5s ease;
+    }
+    
+    #box #lun #luns {
+      min-width: 90vw;
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    #box #lun #luns img {
+      width: 100%;
+      height: 100%;
+    }
+    
+    #songsuok {
+      height: 32px;
+      margin-left: 20px;
+      padding-left: 10px;
+      background-color: #222;
+      border-radius: 10px;
+      border: none;
+      color: #eee;
+      user-select: auto;
+      outline: none;
+    }
+    
+    #backtop {
+      width: 64px;
+      height: 64px;
+      background: #1c1d1f;
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50px;
+      color: #eeeeee;
+    }
+  </style>
+  
+  <!-- HTML -->
+  
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <a id="backtop" href="#">↑</a>
+  <div id="top">
+    <h2 id="toph2"></h2>
+    <input type="text" placeholder="搜索想看的影片" name="" id="songsuok">
+  </div>
+  <div id="box">
+    <button id="left" type="submit">&lt;</button>
+    <button id="right" type="submit">&gt;</button>
+    <div id="lun" class="lun">
+      <div id="luns" class="luns"><img src="" alt="" /></div>
+    </div>
+  </div>
+  
+  <h5 id="h5" style="color: #eeeeee;text-align: center;margin-top: 5vh;">加载中...</h5>
+  <div id="divbody">
+    <div class="divs" id="divs">
+      <div id="img">
+        <img src="" alt="" />
+      </div>
+      <h5></h5>
+      <p></p>
+    </div>
+  </div>
+  <script src="os.js"></script>
+  <script src="api.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    /* var dhl1 = document.getElementById('dhl1')
+    var dhl2 = document.getElementById('dhl2')
+    var dhl3 = document.getElementById('dhl3')
+    var dhl4 = document.getElementById('dhl4')
+    var dhl = document.getElementById('dhl')
+    
+    dhl1.textContent = '反馈'
+    dhl2.textContent = '暂无'
+    dhl3.textContent = '暂无'
+    dhl4.textContent = '设置'
+    
+    dhl1.addEventListener('click', function(e) {
+      e.preventDefault()
+      setTimeout(function() {
+        navigator.clipboard.writeText('https://docs.qq.com/form/page/DYklLaEJNUm5XdG1W')
+        App.ui.toast('已复制到剪贴板')
+      }, 300)
+    })
+    
+    dhl2.addEventListener('click', function() {
+      
+    })
+    
+    dhl3.addEventListener('click', function() {
+      
+    })
+    
+    dhl4.addEventListener('click', function(e) {
+      e.preventDefault()
+      setTimeout(function() {
+        top.location.href = 'sz.html'
+      }, 300)
+    })*/
+  </script>
+  <script type="text/javascript" charset="utf-8">
+    document.title = '首页'
+    var toph2 = document.getElementById('toph2')
+    toph2.textContent = '追梦影视'
+    var divbody = document.getElementById('divbody')
+    divbody.innerHTML = ``
+    var h5 = document.getElementById('h5')
+    
+    syload()
+    
+    function syload() {
+      fetch('https://ltrone.github.io/zmys/sydata.json?t=' + Date.now())
+        .then(rel => rel.json())
+        .then(data => {
+          console.log(data)
+          data.rows.sort(() => Math.random() - 0.5)
+          h5.innerHTML = ''
+          for (var i = 0; i < data.rows.length; i++) {
+            divbody.innerHTML += `<div class="divs" id="divs" data-id="${data.rows[i].id}">
+      <div id="img">
+        <img src="${data.rows[i].img}" alt="" />
+      </div>
+      <h5>${data.rows[i].h5}</h5>
+      <p>${data.rows[i].p}</p>
+    </div>`
+          }
+        })
+        .catch(() => setTimeout(syload, 200))
+    }
+    
+    divbody.addEventListener('click', function(e) {
+      var divss = e.target.closest('.divs')
+      
+      setTimeout(function() {
+        if (divss) {
+          localStorage.setItem('canid', divss.dataset.id)
+          top.location.href = 'ziy.html'
+        }
+      }, 500)
+    })
+  </script>
+  <script type="text/javascript" charset="utf-8">
+    var currs = 0
+    var box = document.getElementById('box')
+    var lun = document.getElementById('lun')
+    var left = document.getElementById('left')
+    var right = document.getElementById('right')
+    
+    left.addEventListener('click', function() {
+      move(-1)
+    })
+    
+    right.addEventListener('click', function() {
+      move(1)
+    })
+    
+    function move(dir) {
+      currs = (currs + dir + lun.children.length) % lun.children.length
+      lun.style.transform = `translateX(-${currs * 100}%)`
+    }
+    
+    setInterval(() => move(1), 3000)
+    
+    lun.innerHTML = ``
+    
+    lunload()
+    
+    function lunload() {
+      fetch('https://ltrone.github.io/zmys/gong.json?t=' + Date.now())
+        .then(rel => rel.json())
+        .then(data => {
+          console.log(data)
+          for (var i = 0; i < data.rows.length; i++) {
+            lun.innerHTML += `<div id="lun" class="lun" data-id="${data.rows[i].id}">
+      <div id="luns" class="luns"><img src="${data.rows[i].imgs}" alt="" /></div>
+    </div>`
+          }
+        })
+        .catch(() => setTimeout(lunload, 200))
+    }
+    
+    box.addEventListener('click', function(e) {
+      var lunss = e.target.closest('.lun')
+      
+      if (lunss) {
+        localStorage.setItem('canid', lunss.dataset.id)
+        top.location.href = 'ziy.html'
+      }
+    })
+    
+    /* var withs = 320
+     var index = 0
+     
+     setInterval(() => {
+       index = (index + 1) % lun.children.length
+       lun.style.left = -index * withs + 'px'
+     }, 3000) */
+  </script>
+  <script type="text/javascript" charset="utf-8">
+    var sousk = document.getElementById('songsuok')
+    var p = document.querySelectorAll('div')
+    
+    // document.querySelectorAll('.divs')
+    // bug修复A-ccv
+    
+    sousk.addEventListener('input', function() {
+      var keytext = this.value.toLowerCase()
+      
+      document.querySelectorAll('.divs').forEach(pkey => {
+        var keytexts = pkey.textContent.toLowerCase()
+        
+        if (keytexts.includes(keytext)) {
+          pkey.style.display = 'flex'
+          box.style.display = 'block'
+          divbody.style.marginTop = ''
+        } else {
+          pkey.style.display = 'none'
+          box.style.display = 'none'
+          divbody.style.marginTop = '90px'
+        }
+      })
+    })
+  </script>
+</body>
+
+</html>

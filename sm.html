@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<title></title>
+	<style type="text/css" media="all">
+		body {
+			background: #000000;
+		}
+		
+		* {
+			margin: 0;
+			padding: 0;
+			user-select: none;
+			-webkit-tap-highlight-color: transparent;
+		}
+		
+		#btn {
+			width: 32px;
+			height: 32px;
+			background: #111214;
+			border: none;
+			color: #eeeeee;
+			font-weight: bold;
+			border-radius: 10px;
+			margin-left: 4vh;
+			margin-top: 4vh;
+		}
+		
+		#divbody {
+			width: 90vw;
+			height: 500px;
+			background: #111214;
+			box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+			border-top: 1px solid rgba(255, 255, 255, 0.1);
+			border-left: 1px solid rgba(255, 255, 255, 0.1);
+			backdrop-filter: blur(12px);
+			margin: 20px auto;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+
+<body>
+	<div style="background: #111214;color: #eeeeee;font-weight: bold;height: 64px;display: flex;justify-content: center;align-items: center;font-size: 32px;box-shadow: 0px 0px 10px snow;">
+		使用说明
+	</div>
+	<div>
+		<button id="btn" type="submit">←</button>
+	</div>
+	<div id="divbody">
+		<h4 style="color: #eeeeee;text-indent: 32px;margin: 10px 10px auto;">欢迎使用追梦旗下产品 追梦影视，我们将给你最佳体验，应用内影片全部免费，如有任何问题可以在"我的"页面中的反馈中心提交你的问题，我们会细心采纳。</h4>
+		<h4 style="color: #eeeeee;text-indent: 32px;margin: 10px 10px auto;">禁止触碰有关《中华人民共和国刑法》相关内容</h4>
+		<h4 style="color: #eeeeee;text-indent: 32px;margin: 10px 10px auto;">本软件是提供给需要的人使用，如果你也是喜欢看电影与电视剧的人，非常感谢你选择我们，我们会尽力满足你所有需求</h4>
+		<h4 style="color: #eeeeee;text-indent: 32px;margin: 10px 10px auto;">如有侵权问题，我们会快速处理</h4>
+		<h4 style="color: #eeeeee;text-indent: 32px;margin: 10px 10px auto;">最终解释权归追梦所有</h4>
+		<h5 style="color: #eeeeee;margin-top: 300px;margin-left: 58vw;">追梦科技工作室</h5>
+	</div>
+	<script type="text/javascript" charset="utf-8">
+		btn.addEventListener('click', function(e) {
+			e.preventDefault()
+			
+			setTimeout(function() {
+				history.back()
+			}, 300)
+		})
+	</script>
+</body>
+
+</html>

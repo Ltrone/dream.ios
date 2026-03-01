@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<title></title>
+	<style type="text/css" media="all">
+		* {
+			margin: 0;
+			-webkit-tap-highlight-color: transparent;
+		}
+		
+		body {
+			background-color: #000000;
+			user-select: none;
+		}
+		
+		#top {
+			width: 100vw;
+			height: 10vh;
+			background: #111214;
+			box-shadow: 0 0 10px snow;
+			display: flex;
+			align-items: center;
+		}
+		
+		#toph2 {
+			color: #eeeeee;
+			margin-left: 20px;
+			font-size: 4vh;
+		}
+		
+		#btn {
+			width: 32px;
+			height: 32px;
+			background: #111214;
+			border: none;
+			color: #eeeeee;
+			font-weight: bold;
+			border-radius: 10px;
+			margin-left: 4vh;
+			margin-top: 4vh;
+		}
+		
+		#vid {
+			width: 90vw;
+			margin: 0 auto;
+			margin-top: 10px;
+			display: flex;
+			justify-content: center;
+			border: 1px solid #111214;
+			border-radius: 10px;
+		}
+		
+		#vid video {
+			border-radius: 10px;
+		}
+		
+		#titletop {
+			text-align: center;
+			color: #eeeeee;
+			margin-top: 2vh;
+		}
+		
+		#btnqh {
+			margin-top: 6vw;
+			margin-left: 64vw;
+		}
+		
+		#btns {
+			width: 90vw;
+			height: auto;
+			margin: 10px auto;
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			flex-wrap: wrap;
+			margin-bottom: 32px;
+		}
+		
+		#btns button {
+			width: 64px;
+			height: 32px;
+			margin-left: 10px;
+			margin-top: 10px;
+			border: none;
+			border-radius: 10px;
+			background: #1c1d1f;
+			color: #eeeeee;
+		}
+		
+		#btns .cbtnvideo.active {
+			background: #00d4ff;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="top">
+		<h2 id="toph2"></h2>
+	</div>
+	<div>
+		<button id="btn" type="submit">←</button>
+	</div>
+	<h5 id="h5" style="color: #eeeeee;text-align: center;">加载中...</h5>
+	<h3 id="titletop"></h3>
+	<div id="vid">
+		<video id="videos" src="" height="200" width="300" preload="auto" autoplay controls poster="hei.jpg" controlsList="nodownload"></video>
+	</div>
+	<div id="btns">
+		<button id="btnvideo" class="cbtnvideo" onclick="load('',this)" type="submit"></button>
+	</div>
+	<script type="text/javascript" charset="utf-8">
+		var toph2 = document.getElementById('toph2')
+		toph2.textContent = '追梦影视'
+		var sydata = localStorage.getItem('canid')
+		console.log(sydata)
+		
+		var vid = document.getElementById('vid')
+		var video = document.getElementById('videos')
+		
+		var titletop = document.getElementById('titletop')
+		var h5 = document.getElementById('h5')
+		
+		var btns = document.getElementById('btns')
+		
+		var btnvideo = document.getElementById('btnvideo')
+		btnvideo.style.display = 'none'
+		
+		function load(src, element) {
+			video.src = src
+			video.play()
+			
+			document.querySelector('.cbtnvideo.active')?.classList.remove('active')
+			
+			element.classList.add('active')
+		}
+		
+		ziyload()
+		
+		function ziyload() {
+			fetch('https://ltrone.github.io/zmys/ziydata.json')
+				.then(rel => rel.json())
+				.then(data => {
+					console.log(data)
+					h5.innerHTML = ''
+					titletop.innerHTML = '追梦影视-' + `${data.rows[sydata].p}`
+					for (var i = 0; i < data.rows[sydata].video.length; i++) {
+						btns.innerHTML += `
+		<button id="btnvideo" class="cbtnvideo" onclick="load('${data.rows[sydata].video[i].src}',this)" type="submit">${data.rows[sydata].video[i].p}</button>`
+					}
+					
+					var videodata = sydata
+					var stime = localStorage.getItem(videodata) || 0
+					video.currentTime = stime
+					
+					video.addEventListener('timeupdate', () => {
+						localStorage.setItem(videodata, video.currentTime)
+					})
+				})
+				.catch(() => setTimeout(ziyload, 200))
+		}
+		
+		var btn = document.getElementById('btn')
+		
+		btn.addEventListener('click', function(e) {
+			e.preventDefault()
+			
+			setTimeout(function() {
+				history.back()
+			}, 300)
+		})
+	</script>
+	<script src="qh.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

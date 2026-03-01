@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<title>个人修改页面</title>
+	<style type="text/css" media="all">
+		* {
+			margin: 0;
+			padding: 0;
+			-webkit-tap-highlight-color: transparent;
+			user-select: none;
+		}
+		
+		body {
+			background: #000000;
+		}
+		
+		#btn {
+			width: 32px;
+			height: 32px;
+			background: #111214;
+			border: none;
+			color: #eeeeee;
+			font-weight: bold;
+			border-radius: 10px;
+			margin-left: 4vh;
+			margin-top: 4vh;
+		}
+		
+		#xg {
+			width: 100vw;
+			margin-top: 5vh;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+		}
+		
+		#xg input {
+			width: 80vw;
+			height: 40px;
+			border: none;
+			border-radius: 10px;
+			padding-left: 12px;
+			background: #1c1d1f;
+			color: #eeeeee;
+			outline: none;
+			font-weight: bold;
+		}
+		
+		#xg button {
+			margin-top: 20px;
+			width: 40vw;
+			height: 32px;
+			background: #111214;
+			color: #eeeeee;
+			border: none;
+			border-radius: 10px;
+			font-weight: bold;
+		}
+		
+		#xg button:active {
+			transform: scale(0.95);
+			background: #1c1d1f;
+		}
+	</style>
+</head>
+
+<body>
+	<div>
+		<button id="btn" type="submit">←</button>
+		
+		<div id="xg">
+			<input type="text" id="names" name="" placeholder="请输入昵称">
+			<button id="qd" type="submit">确定</button>
+		</div>
+	</div>
+	<script type="text/javascript" charset="utf-8">
+		var btn = document.getElementById('btn')
+		
+		btn.addEventListener('click', function(e) {
+			e.preventDefault()
+			
+			setTimeout(function() {
+				history.back()
+			}, 300)
+		})
+		
+		var qd = document.getElementById('qd')
+		var names = document.getElementById('names')
+		
+		names.value = localStorage.getItem('name') || 'Name'
+		
+		qd.addEventListener('click', function(e) {
+			e.preventDefault()
+			setTimeout(function() {
+				history.back()
+			}, 300)
+			localStorage.setItem('name', names.value)
+		})
+	</script>
+</body>
+
+</html>

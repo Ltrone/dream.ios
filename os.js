@@ -1,0 +1,11 @@
+webapp.设置竖屏模式(true);
+//开启竖屏模式false恢复默认
+webapp.设置下拉刷新(false);
+//关闭下拉刷新true打开
+webapp.设置加载效果(false);
+//关闭加载效果true打开
+webapp.设置缓存模式(true);
+//设置true不使用缓存模式
+//设置false恢复默认缓存方法
+webapp.设置深色模式(false);
+//开启系统深色模式false关闭

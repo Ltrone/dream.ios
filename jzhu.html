@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+  <title></title>
+  <style type="text/css" media="all">
+    body {
+      background: #000000;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    #btn {
+      width: 32px;
+      height: 32px;
+      background: #222222;
+      border: none;
+      color: #eeeeee;
+      font-weight: bold;
+      border-radius: 10px;
+      margin-left: 4vh;
+      margin-top: 4vh;
+    }
+    
+    #text {
+      width: 90vw;
+      height: auto;
+      margin: 16px auto;
+      padding: 10px 10px;
+      border-radius: 10px;
+      background: #1c1d1f;
+    }
+    
+    #text p {
+      width: 90vw;
+      text-wrap: wrap;
+      color: #eeeeee;
+      margin: 10px auto;
+      text-indent: 32px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    
+    #imgs {
+      width: 90vw;
+      height: auto;
+      margin: 0px auto;
+      padding: 10px 10px;
+      border-radius: 10px;
+      background: #1c1d1f;
+      color: #eeeeee;
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    #username {
+      width: 90vw;
+      height: auto;
+      margin: 16px auto;
+      padding: 10px 10px;
+      border-radius: 10px;
+      background: #1c1d1f;
+    }
+    
+    #user {
+      width: 90vw;
+      color: #eeeeee;
+      font-weight: bold;
+      margin: 10px auto;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    #user div {
+      border-bottom: 1px solid #eeeeee;
+      margin: 10px 10px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="background: #111214;color: #eeeeee;font-weight: bold;height: 64px;display: flex;justify-content: center;align-items: center;font-size: 32px;box-shadow: 0px 0px 10px snow;">
+    捐助我们
+  </div>
+  <div>
+    <button id="btn" type="submit">←</button>
+  </div>
+  <div id="text">
+    <p>追梦影视诞生于无数个深夜的台灯下，是我们用业余时间一点点打磨出来的作品。它或许还不够完美，但每一帧都在努力变得更好。</p>
+    <p>如果你喜欢追梦影视，欢迎通过捐赠支持我们。每一份心意，都会化作更好的服务器、更流畅的播放体验，以及我们坚持下去的动力。</p>
+    <h3>感谢你的捐助</h3>
+  </div>
+  <div id="username">
+    <h4 style="color: #eeeeee;">捐助名单</h4>
+    <p style="color: #eeeeee;font-size: 12px;">联系我们：<span style="user-select: auto;">1576763812@qq.com</span> </p>
+    <div id="user">
+      <div>
+        
+      </div>
+    </div>
+  </div>
+  <div id="imgs">
+    
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    var user = document.getElementById('user')
+    
+    jzhuuser()
+    
+    function jzhuuser() {
+      fetch('https://ltrone.github.io/zmys/jzhuuser.json')
+        .then(rel => rel.json())
+        .then(data => {
+          console.log(data)
+          
+          for (var i = 0; i < data.rows.length; i++) {
+            user.innerHTML += `<div>
+        ${data.rows[i].user}
+      </div>`
+          }
+        })
+        .catch(() => setTimeout(jzhuuser, 200))
+    }
+    
+    var imgs = document.getElementById('imgs')
+    
+    jzhu()
+    
+    function jzhu() {
+      fetch('https://ltrone.github.io/zmys/jzhu.json')
+        .then(rel => rel.json())
+        .then(data => {
+          console.log(data)
+          for (var i = 0; i < data.imgs.length; i++) {
+            imgs.innerHTML += `<div>
+      ${data.imgs[i].p}
+      <img src="https://ltrone.github.io/zmys${data.imgs[i].img}" alt="" width="300" height="300"/>
+    </div>`
+          }
+        })
+        .catch(() => setTimeout(jzhu, 200))
+    }
+  </script>
+  <script type="text/javascript" charset="utf-8">
+    btn.addEventListener('click', function(e) {
+      e.preventDefault()
+      
+      setTimeout(function() {
+        history.back()
+      }, 300)
+    })
+  </script>
+</body>
+
+</html>

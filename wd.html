@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+	<title>我的</title>
+	<style type="text/css" media="all">
+		* {
+			margin: 0;
+			padding: 0;
+			-webkit-tap-highlight-color: transparent;
+			user-select: none;
+		}
+		
+		body {
+			background: #000000;
+		}
+		
+		#wd {
+			width: 90vw;
+			height: 120px;
+			background-color: #111214;
+			margin: 20px auto;
+			border-radius: 10px;
+			color: #eeeeee;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			font-weight: bold;
+			font-size: 14px;
+		}
+		
+		#wd #name {
+			margin-top: 5px;
+			margin-left: 10vw;
+		}
+		
+		#wd #ID {
+			margin-top: 5px;
+			margin-left: 10vw;
+		}
+		
+		#dhl {
+			width: 90vw;
+			height: auto;
+			background: #111214;
+			margin: auto;
+			color: #eeeeee;
+			font-weight: bold;
+			font-size: 16px;
+			border-radius: 10px;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+		}
+		
+		#dhl div {
+			min-width: 80vw;
+			height: 64px;
+			padding-left: 10px;
+			border-radius: 10px;
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+		}
+	</style>
+</head>
+
+<body>
+	<div style="background: #111214;color: #eeeeee;font-weight: bold;height: 64px;display: flex;justify-content: center;align-items: center;font-size: 32px;box-shadow: 0px 0px 10px snow;">
+		我的
+	</div>
+	<div id="wd">
+		<div id="name">
+			
+		</div>
+		<div id="ID">
+			
+		</div>
+	</div>
+	<div id="dhl">
+		<div id="fk">
+			反馈
+		</div>
+		<div id="sz">
+			设置
+		</div>
+	</div>
+	<script type="text/javascript" charset="utf-8">
+		var wd = document.getElementById('wd')
+		
+		wd.addEventListener('click', function(e) {
+			e.preventDefault()
+			setTimeout(function() {
+				top.location.href = 'wdxg.html'
+			}, 300)
+		})
+		
+		document.getElementById('name').textContent = '用户名：' + localStorage.getItem('name') || 'Name'
+		
+		wd.addEventListener('touchstart', function() {
+			wd.style.background = '#1c1d1f'
+			wd.style.transform = 'scale(0.95)'
+		})
+		
+		wd.addEventListener('touchend', function() {
+			wd.style.background = ''
+			wd.style.transform = 'scale(1)'
+		})
+		
+		var ID = document.getElementById('ID')
+		
+		ID.textContent = `ID：` + localStorage.getItem('ids')
+		
+		if (!localStorage.getItem('ids')) {
+			localStorage.setItem('ids', performance.timing.navigationStart)
+		}
+	</script>
+	<script type="text/javascript" charset="utf-8">
+		var dhldiv = document.querySelectorAll('#dhl div')
+		
+		dhldiv.forEach(function(dhldivs) {
+			dhldivs.addEventListener('touchstart', function() {
+				dhldivs.style.background = '#1c1d1f'
+			})
+			
+			dhldivs.addEventListener('touchend', function() {
+				dhldivs.style.background = ''
+			})
+		})
+		
+		var fk = document.getElementById('fk')
+		var sz = document.getElementById('sz')
+		
+		fk.addEventListener('click', function() {
+			top.location.href = 'https://docs.qq.com/form/page/DYklLaEJNUm5XdG1W'
+		})
+		
+		sz.addEventListener('click', function() {
+			top.location.href = 'sz.html'
+		})
+	</script>
+</body>
+
+</html>

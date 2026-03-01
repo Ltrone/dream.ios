@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+  <title></title>
+  <style type="text/css" media="all">
+    body {
+      background: #000000;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    #btn {
+      width: 32px;
+      height: 32px;
+      background: #222222;
+      border: none;
+      color: #eeeeee;
+      font-weight: bold;
+      border-radius: 10px;
+      margin-left: 4vh;
+      margin-top: 4vh;
+    }
+    
+    #divbody {
+      width: 90vw;
+      height: 500px;
+      box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-left: 1px solid rgba(255, 255, 255, 0.1);
+      background: #111214;
+      backdrop-filter: blur(12px);
+      border-radius: 10px;
+      margin: 20px auto;
+    }
+    
+    #lists {
+      width: 80vw;
+      margin: 10px auto;
+    }
+    
+    #lists div {
+      width: 80vw;
+      height: 32px;
+      border-radius: 10px;
+      color: #eeeeee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="background: #111214;color: #eeeeee;font-weight: bold;height: 64px;display: flex;justify-content: center;align-items: center;font-size: 32px;box-shadow: 0px 0px 10px snow;">
+    关于追梦
+  </div>
+  <div>
+    <button id="btn" type="submit">←</button>
+  </div>
+  <div id="divbody">
+    <div id="imgicon" style="margin:10px auto;width: 64px;border: 1px solid #eeeeee;height: 64px;border-radius: 10px;">
+      <img src="zmysicon.png" style="width: 64px;height: 64px;border-radius: 10px;" alt="" />
+    </div>
+    <h5 style="color: #eeeeee;text-align: center;">当前版本：1.0.18</h5>
+    <div id="lists">
+      <div id="vnew">
+        <h4>检测更新</h4>
+        <h4>></h4>
+      </div>
+      <div id="jzhu">
+        <h4>捐助我们</h4>
+        <h4>></h4>
+      </div>
+    </div>
+  </div>
+  <script src="api.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    var vnew = document.getElementById('vnew')
+    var lists = document.querySelectorAll('#lists div')
+    
+    vnew.addEventListener('click', function() {
+      App.ui.toast('已是最新版本')
+    })
+    
+    var jzhu = document.getElementById('jzhu')
+    jzhu.addEventListener('click', function() {
+      top.location.href = 'jzhu.html'
+    })
+    
+    lists.forEach(function(list) {
+      list.addEventListener('touchstart', function() {
+        list.style.background = '#1c1d1f'
+      })
+      
+      list.addEventListener('touchend', function() {
+        list.style.background = ''
+      })
+    })
+  </script>
+  <script type="text/javascript" charset="utf-8">
+    btn.addEventListener('click', function(e) {
+      e.preventDefault()
+      
+      setTimeout(function() {
+        history.back()
+      }, 300)
+    })
+  </script>
+</body>
+
+</html>
